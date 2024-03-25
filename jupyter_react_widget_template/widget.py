@@ -4,7 +4,7 @@ from traitlets import Unicode
 
 MODULE_NAME = "jupyter-react-widget-template"
 
-MODULE_VERSION = "0.0.0"
+MODULE_VERSION = "0.0.1-dev0"
 
 
 class Widget(DOMWidget):
