@@ -1,0 +1,1 @@
+from jupyter_react_widget_template.hooks import _jupyter_labextension_paths, _jupyter_nbextension_paths

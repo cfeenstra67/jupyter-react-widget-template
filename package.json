@@ -1,0 +1,56 @@
+{
+  "name": "jupyter-react-widget-template",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build:prod": "pnpm build:lib && NODE_ENV=production pnpm build:nbextension && NODE_ENV=production pnpm build:labextension",
+    "build:lib": "tsc",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:nbextension": "rollup -c",
+    "clean:lib": "rm -rf dist",
+    "clean:labextension": "rm -rf jupyter_react_widget_template/labextension",
+    "clean:nbextension": "rm -rf jupyter_react_widget_template/nbextension",
+    "clean": "pnpm clean:lib && pnpm clean:labextension && pnpm clean:nbextension"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jupyter-widgets/base": "^6.0.7",
+    "@lumino/application": "^2.3.0",
+    "@lumino/widgets": "^2.3.1",
+    "@types/react": "^17",
+    "react": "^17",
+    "react-dom": "^17"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^4.1.5",
+    "@jupyterlab/services": "^7.1.5",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@swc/core": "^1.4.8",
+    "rollup": "^4.13.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.3"
+  },
+  "jupyterlab": {
+    "extension": "dist/plugin",
+    "outputDir": "jupyter_react_widget_template/labextension/jupyter-react-widget-template",
+    "sharedPackages": {
+      "@jupyter-widgets/base": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/ui-components": {
+        "bundled": false,
+        "singleton": true
+      }
+    }
+  }
+}

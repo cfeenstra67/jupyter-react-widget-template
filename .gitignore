@@ -1,0 +1,10 @@
+/venv
+/lib
+/dist
+/node_modules
+/jupyter_react_widget_template/nbextension
+/jupyter_react_widget_template/labextension
+*.ipynb
+.ipynb_checkpoints
+*.pyc
+__pycache__
