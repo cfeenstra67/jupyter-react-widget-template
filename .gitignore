@@ -8,3 +8,5 @@
 .ipynb_checkpoints
 *.pyc
 __pycache__
+/.mypy_cache
+/.ruff_cache

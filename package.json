@@ -7,6 +7,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:python": "pnpm clean && venv/bin/python -m build .",
+    "build:publish": "pnpm clean && pnpm build:prod",
     "build:prod": "pnpm build:lib && NODE_ENV=production pnpm build:nbextension && NODE_ENV=production pnpm build:labextension",
     "build:lib": "tsc",
     "build:labextension": "jupyter labextension build .",
@@ -22,7 +23,11 @@
     "watch:labextension": "jupyter labextension watch .",
     "check": "pnpm run /check:/",
     "check:js": "biome check --apply src",
-    "check:python": "venv/bin/ruff format jupyter_react_widget_template && venv/bin/ruff check --fix jupyter_react_widget_template && venv/bin/mypy"
+    "check:python": "venv/bin/ruff format jupyter_react_widget_template && venv/bin/ruff check --fix jupyter_react_widget_template && venv/bin/mypy",
+    "npm-publish": "./npm-publish.sh",
+    "pypi-check": "twine check dist/jupyter_react_widget_template-*",
+    "pypi-upload-test": "twine upload --repository-url https://test.pypi.org/legacy/ dist/jupyter_react_widget_template-*",
+    "pypi-upload": "twine upload dist/jupyter_react_widget_template-*"
   },
   "keywords": [],
   "author": "",
