@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss';
 
 const external = ['@jupyter-widgets/base'];
 
@@ -9,6 +10,16 @@ function plugins({
   ts
 }) {
   return [
+    postcss({
+      config: {
+        path: './postcss.config.js'
+      },
+      extensions: ['.css'],
+      minimize: true,
+      inject: {
+        insertAt: 'top'
+      }
+    }),
     resolve(),
     commonjs(),
     typescript(ts),

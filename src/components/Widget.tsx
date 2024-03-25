@@ -1,7 +1,8 @@
 import { useWidgetModelState } from "../lib/widget-model";
+import '../styles/globals.css';
 
-export default function Component() {
+export default function Widget() {
   const [name] = useWidgetModelState('name');
 
-  return <h1>Hello, {name}!</h1>;
+  return <h1 className="text-red-500 text-3xl">Hello, {name}!</h1>;
 }
