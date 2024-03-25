@@ -42,7 +42,7 @@ const configs = [
     }),
   },
   {
-    input: 'src/plugin.ts',
+    input: ['src/index.ts', 'src/plugin.ts'],
     external,
     output: {
       dir: 'dist',

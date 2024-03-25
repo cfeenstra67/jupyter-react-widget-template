@@ -43,10 +43,10 @@ dev = [
     "ruff",
     "bump2version==1.*",
     "jupyterlab==4.*",
-    "build>=1.0.0"
+    "build>=1.0.0",
+    "mypy>=1,<2",
+    "twine"
 ]
-types = ["mypy>=1,<2"]
-publish = ["twine"]
 
 [project.urls]
 Homepage = "https://github.com/cfeenstra67/jupyter-react-widget-template"

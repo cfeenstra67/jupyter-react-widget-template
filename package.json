@@ -3,7 +3,7 @@
   "version": "0.0.1-dev0",
   "description": "",
   "type": "module",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "build:python": "pnpm clean && venv/bin/python -m build .",
