@@ -1,7 +1,10 @@
 from ipywidgets import DOMWidget
 from traitlets import Unicode
 
-from jupyter_react_widget_template.constants import MODULE_NAME, MODULE_VERSION
+
+MODULE_NAME = "jupyter-react-widget-template"
+
+MODULE_VERSION = "0.0.0"
 
 
 class Widget(DOMWidget):
