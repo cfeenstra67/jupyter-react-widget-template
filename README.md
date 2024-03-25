@@ -1,5 +1,7 @@
 # Jupyter React Widget Template
 
+This is a basic repository setup for a React-based jupyter widget, based on the tools I like to use at the moment. There's a _lot_ required to get this all working and there aren't a lot of good references out there, so I made this repo as a reference for myself that I can copy when creating new Jupyter widget packages.
+
 (See the [lmk README](https://github.com/lmkapp/lmk/blob/main/packages/python-client/README.md) for more info, all of this info originated from there)
 
 ## Set up
@@ -51,11 +53,3 @@ pnpm check
 ```bash
 pnpm build:python
 ```
-
-## TODO ideas
-
-- Add basic github actions setup?
-
-- Write a basic readme
-
-- Push this
