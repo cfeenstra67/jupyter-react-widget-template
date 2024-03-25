@@ -1,9 +1,9 @@
 import { IJupyterWidgetRegistry } from "@jupyter-widgets/base";
-import { Application, IPlugin } from "@lumino/application";
-import { Widget } from "@lumino/widgets";
+import type { Application, IPlugin } from "@lumino/application";
+import type { Widget } from "@lumino/widgets";
 import { WidgetModel } from "./lib/widget-model";
-import { WidgetView } from "./widget";
 import { MODULE_NAME, MODULE_VERSION } from "./version";
+import { WidgetView } from "./widget";
 
 const EXTENSION_ID = "jupyter-react-widget-template:plugin";
 
@@ -21,7 +21,7 @@ export default plugin;
  */
 function activateWidgetExtension(
   app: Application<Widget>,
-  registry: IJupyterWidgetRegistry
+  registry: IJupyterWidgetRegistry,
 ): void {
   registry.registerWidget({
     name: MODULE_NAME,
@@ -29,5 +29,3 @@ function activateWidgetExtension(
     exports: { WidgetModel, WidgetView },
   });
 }
-
-

@@ -15,7 +15,14 @@
     "clean:lib": "rm -rf dist",
     "clean:labextension": "rm -rf jupyter_react_widget_template/labextension",
     "clean:nbextension": "rm -rf jupyter_react_widget_template/nbextension",
-    "clean": "pnpm clean:lib && pnpm clean:labextension && pnpm clean:nbextension"
+    "clean": "pnpm clean:lib && pnpm clean:labextension && pnpm clean:nbextension",
+    "watch": "pnpm run /watch:/",
+    "watch:lib": "tsc -w",
+    "watch:nbextension": "rollup -c --watch",
+    "watch:labextension": "jupyter labextension watch .",
+    "check": "pnpm run /check:/",
+    "check:js": "biome check --apply src",
+    "check:python": "venv/bin/ruff format jupyter_react_widget_template && venv/bin/ruff check --fix jupyter_react_widget_template && venv/bin/mypy"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +35,7 @@
     "react-dom": "^17"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.6.2",
     "@jupyterlab/builder": "^4.1.5",
     "@jupyterlab/services": "^7.1.5",
     "@rollup/plugin-commonjs": "^25.0.7",

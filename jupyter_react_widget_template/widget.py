@@ -13,4 +13,4 @@ class Widget(DOMWidget):
     _view_module = Unicode(MODULE_NAME).tag(sync=True)
     _view_module_version = Unicode(MODULE_VERSION).tag(sync=True)
 
-    name = Unicode("").tag(sync=True)
+    name = Unicode("World").tag(sync=True)

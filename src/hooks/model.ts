@@ -1,14 +1,14 @@
+import type { WidgetModel } from "@jupyter-widgets/base";
 import {
+  type DependencyList,
   createContext,
+  createElement,
   useContext,
   useEffect,
   useState,
-  DependencyList,
-  createElement,
 } from "react";
-import { WidgetModel } from "@jupyter-widgets/base";
 
-type ModelCallback = (models: WidgetModel, event: any) => void;
+type ModelCallback = (models: WidgetModel, event: unknown) => void;
 
 export interface ModelProviderProps {
   model: WidgetModel;
@@ -21,10 +21,10 @@ export interface ModelContext<T> {
   useModelEvent: (
     event: string,
     callback: ModelCallback,
-    deps?: DependencyList
+    deps?: DependencyList,
   ) => void;
   useModelState: <K extends string & keyof T>(
-    name: K
+    name: K,
   ) => [T[K], (val: T[K]) => void];
 }
 
@@ -38,13 +38,13 @@ export function createModelContext<T>(): ModelContext<T> {
   const useModelEvent: ModelContext<T>["useModelEvent"] = (
     event,
     callback,
-    deps
+    deps,
   ) => {
     const model = useModel();
 
     const dependencies = deps === undefined ? [model] : [...deps, model];
     useEffect(() => {
-      const callbackWrapper = (event: any) => {
+      const callbackWrapper = (event: unknown) => {
         model && callback(model, event);
       };
       model?.on(event, callbackWrapper);
@@ -53,9 +53,9 @@ export function createModelContext<T>(): ModelContext<T> {
   };
 
   const useModelState: ModelContext<T>["useModelState"] = <
-    K extends string & keyof T
+    K extends string & keyof T,
   >(
-    name: K
+    name: K,
   ) => {
     const model = useModel();
     const [state, setState] = useState<T[K]>(model?.get(name));
@@ -65,10 +65,10 @@ export function createModelContext<T>(): ModelContext<T> {
       (model) => {
         setState(model.get(name));
       },
-      [name]
+      [name],
     );
 
-    function updateModel(val: T[K], options?: any) {
+    function updateModel(val: T[K], options?: unknown) {
       model?.set(name, val, options);
       model?.save_changes();
     }

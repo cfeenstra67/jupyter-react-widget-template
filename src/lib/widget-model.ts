@@ -1,4 +1,4 @@
-import { DOMWidgetModel, ISerializers } from "@jupyter-widgets/base";
+import { DOMWidgetModel, type ISerializers } from "@jupyter-widgets/base";
 import { createModelContext } from "../hooks/model";
 import { MODULE_NAME, MODULE_VERSION } from "../version";
 
@@ -14,7 +14,7 @@ export const {
 } = createModelContext<IWidgetModel>();
 
 const defaultModelProperties: IWidgetModel = {
-  name: ''
+  name: "",
 };
 
 export class WidgetModel extends DOMWidgetModel {

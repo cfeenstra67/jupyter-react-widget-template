@@ -40,7 +40,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black==23.*",
+    "ruff",
     "bump2version==1.*",
     "jupyterlab==4.*",
     "build>=1.0.0"
@@ -87,3 +87,4 @@ allow-direct-references = true
 
 [tool.mypy]
 packages = ["jupyter_react_widget_template"]
+disable_error_code = "import-untyped"

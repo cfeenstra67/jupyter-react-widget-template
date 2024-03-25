@@ -5,6 +5,7 @@
 ## TODO ideas
 
 - Add biome/black/mypy for formatting/linting
+    - done
 
 - Add bumpversion
 
@@ -15,5 +16,7 @@
 - Push this
 
 - Tailwind/styling
+    - done
 
 - Dev commands
+    - done

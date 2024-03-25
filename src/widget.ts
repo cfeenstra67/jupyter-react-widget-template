@@ -6,10 +6,13 @@ import { WidgetViewProvider } from "./lib/widget-model";
 
 export class WidgetView extends DOMWidgetView {
   render() {
-    const component = createElement(WidgetViewProvider, {
-      model: this.model,
-      children: createElement(Widget),
-    });
+    const component = createElement(
+      WidgetViewProvider,
+      {
+        model: this.model,
+      },
+      createElement(Widget),
+    );
 
     ReactDOM.render(component, this.el);
   }
