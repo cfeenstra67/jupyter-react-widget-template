@@ -14,6 +14,4 @@
   document.querySelector("body")!.getAttribute("data-base-url") +
   "nbextensions/jupyter-react-widget-template";
 
-export { WidgetModel } from "./lib/widget-model";
-export { WidgetView } from "./widget";
 export * from "./index";
